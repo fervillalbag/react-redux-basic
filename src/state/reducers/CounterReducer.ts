@@ -1,10 +1,14 @@
-const CounterReducer = (state: number = 0, action: any) => {
+import { Action } from "../actions";
+
+const CounterReducer = (state: number = 0, action: Action) => {
   switch (action.type) {
     case "add":
-      return state + 1;
+      return state + action.payload;
 
     case "delete":
-      return state - 1;
+      return state - action.payload;
+    case "reset":
+      return 0;
 
     default:
       return state;

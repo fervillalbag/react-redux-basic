@@ -1,17 +1,30 @@
+import { Dispatch } from "redux";
+
+import { ActionType } from "../types";
+import { Action } from ".";
+
 export const addCounter = (amount: number) => {
-  return (dispatch: any) => {
+  return (dispatch: Dispatch<Action>) => {
     dispatch({
-      type: "add",
+      type: ActionType.ADD,
       payload: amount,
     });
   };
 };
 
 export const deleteCounter = (amount: number) => {
-  return (dispatch: any) => {
+  return (dispatch: Dispatch<Action>) => {
     dispatch({
-      type: "delete",
+      type: ActionType.DELETE,
       payload: amount,
+    });
+  };
+};
+
+export const resetCounter = () => {
+  return (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionType.RESET,
     });
   };
 };
